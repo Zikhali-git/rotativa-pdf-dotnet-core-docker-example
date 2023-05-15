@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="RotativaIO.NetCore" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,12 +1,23 @@
 ﻿using System.IO;
 using System;
 using System.Reflection;
+using RotativaIO.NetCore;
 
 namespace RotativaConsole
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
+        {
+            var pdfBytes = RotativaLocalBuild();
+
+            var pdfUrl = await RotativaIOHq();
+
+
+            Console.WriteLine("Pdf Created");
+        }
+
+        public static byte[] RotativaLocalBuild()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
 
@@ -22,7 +33,15 @@ namespace RotativaConsole
 
             File.WriteAllBytes(pdfFile, pdfByteArr);
 
-            Console.WriteLine("Pdf Created");
+            return pdfByteArr;
+        }
+
+
+        public static async Task<string> RotativaIOHq()
+        {
+            var cli = new RotativaioClient("3b8626bf9ad74c98b7f641a8e668e1db", "https://eunorth.rotativahq.com");
+            var res = await cli.GetPdfUrl("", "<b>Ciao</b>", "", "", "", "");
+            return res;
         }
     }
 }
