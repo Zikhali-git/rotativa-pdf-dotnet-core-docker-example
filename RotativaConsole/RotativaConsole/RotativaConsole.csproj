@@ -8,15 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="File\test.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="File\test.html" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="File\test.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Rotativa\wkhtmltopdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Rotativa\wkhtmltopdf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
