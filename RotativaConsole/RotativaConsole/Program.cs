@@ -36,7 +36,7 @@ namespace RotativaConsole
             return pdfByteArr;
         }
 
-
+        // Example from github repo @https://github.com/RotativaHQ/rotativaio.netcore/tree/master
         public static async Task<string> GetRotativaIOPdfUrl()
         {
             var cli = new RotativaioClient("3b8626bf9ad74c98b7f641a8e668e1db", "https://eunorth.rotativahq.com");
