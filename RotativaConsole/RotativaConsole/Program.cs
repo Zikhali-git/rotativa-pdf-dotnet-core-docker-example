@@ -9,15 +9,15 @@ namespace RotativaConsole
     {
         static async Task Main(string[] args)
         {
-            var pdfBytes = RotativaLocalBuild();
+            var pdfBytes = ConvertHtmlToPdf();
 
-            var pdfUrl = await RotativaIOHq();
+            var pdfUrl = await GetRotativaIOPdfUrl();
 
 
             Console.WriteLine("Pdf Created");
         }
 
-        public static byte[] RotativaLocalBuild()
+        public static byte[] ConvertHtmlToPdf()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
 
@@ -37,7 +37,7 @@ namespace RotativaConsole
         }
 
 
-        public static async Task<string> RotativaIOHq()
+        public static async Task<string> GetRotativaIOPdfUrl()
         {
             var cli = new RotativaioClient("3b8626bf9ad74c98b7f641a8e668e1db", "https://eunorth.rotativahq.com");
             var res = await cli.GetPdfUrl("", "<b>Ciao</b>", "", "", "", "");
